@@ -14,11 +14,11 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // Initialize AuthRepository
-  AuthRepository authRepository = AuthRepository();
-
-  // Initialize AuthController with AuthRepository
-  Get.put(AuthController(authRepository: authRepository));
+  // // Initialize AuthRepository
+  // AuthRepository authRepository = AuthRepository();
+  //
+  // // Initialize AuthController with AuthRepository
+  // Get.put(AuthController(authRepository: authRepository));
 
   runApp(const MyApp());
 }
