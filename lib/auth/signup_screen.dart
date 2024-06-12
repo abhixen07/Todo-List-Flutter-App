@@ -70,7 +70,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/vending.png',
+              'assets/applogo.png',
               height: 100,
               width: 100,
             ),

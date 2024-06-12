@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/vending.png',
+                'assets/applogo.png',
                 height: 100,
                 width: 100,
               ),
@@ -167,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       )
                   ),
                   child: const Center(
-                    child: Text('Login with phone'),
+                    child: Text('Sign In With Google'),
                   ),
                 ),
               )
