@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:todo_list/data/repositories/auth_repository.dart';
 import 'package:todo_list/modules/auth/controllers/login_controller.dart';
 import 'package:todo_list/modules/auth/controllers/signup_controller.dart';
-import 'package:todo_list/splash_screen.dart';
+import 'package:todo_list/pages/splash_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
