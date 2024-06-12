@@ -1,19 +1,19 @@
-import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:todo_list/auth/login_screen.dart';
-
+import 'package:get/get.dart';
+import 'package:todo_list/modules/auth/views/login_view.dart';
+import 'package:todo_list/modules/auth/views/signup_view.dart';
 
 class SplashServices {
-  Future<void> isLogin(BuildContext context) async {
+  Future<void> isLogin() async {
     final auth = FirebaseAuth.instance;
     final user = auth.currentUser;
 
-    await Timer(const Duration(seconds: 3), () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => LoginScreen()),
-        );
+    await Future.delayed(const Duration(seconds: 3), () {
+      if (user == null) {
+        Get.offAll(() => LoginView());
+      } else {
+        Get.offAll(() => SignUpView());
+      }
     });
   }
 }
