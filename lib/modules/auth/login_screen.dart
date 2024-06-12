@@ -151,26 +151,26 @@
 //                 ],
 //               ),
 //               const SizedBox(height: 30,),
-//               InkWell(
-//                 onTap: (){
-//                   Navigator.push(
-//                       context,
-//                       MaterialPageRoute(builder: (context) => const SignInWithGoogle())
-//                   );
-//                 },
-//                 child: Container(
-//                   height: 50,
-//                   decoration: BoxDecoration(
-//                       borderRadius: BorderRadius.circular(50),
-//                       border: Border.all(
-//                         color: Colors.black,
-//                       )
-//                   ),
-//                   child: const Center(
-//                     child: Text('Sign In With Google'),
-//                   ),
-//                 ),
-//               )
+//               // InkWell(
+//               //   onTap: (){
+//               //     Navigator.push(
+//               //         context,
+//               //         MaterialPageRoute(builder: (context) => const SignInWithGoogle())
+//               //     );
+//               //   },
+//               //   child: Container(
+//               //     height: 50,
+//               //     decoration: BoxDecoration(
+//               //         borderRadius: BorderRadius.circular(50),
+//               //         border: Border.all(
+//               //           color: Colors.black,
+//               //         )
+//               //     ),
+//               //     child: const Center(
+//               //       child: Text('Sign In With Google'),
+//               //     ),
+//               //   ),
+//               // )
 //             ],
 //           ),
 //         ),

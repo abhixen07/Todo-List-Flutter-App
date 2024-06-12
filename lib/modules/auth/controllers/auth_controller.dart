@@ -13,21 +13,25 @@ class AuthController extends GetxController {
 
   AuthController({required this.authRepository});
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController1 = TextEditingController();
+  final TextEditingController passwordController1 = TextEditingController();
+  final TextEditingController emailController2 = TextEditingController();
+  final TextEditingController passwordController2 = TextEditingController();
   final formKey = GlobalKey<FormState>(); // Add formKey here
 
   @override
   void onClose() {
-    emailController.dispose();
-    passwordController.dispose();
+    emailController1.dispose();
+    passwordController1.dispose();
+    emailController2.dispose();
+    passwordController2.dispose();
     super.onClose();
   }
 
   void login() async {
     loading(true);
     try {
-      User? user = await authRepository.signInWithEmailAndPassword(emailController.text, passwordController.text);
+      User? user = await authRepository.signInWithEmailAndPassword(emailController1.text, passwordController1.text);
       if (user != null) {
         Utils().toastMessage('Welcome ${user.email}');
         Get.offAll(() => HomePage());
@@ -42,7 +46,7 @@ class AuthController extends GetxController {
   void signUp() async {
     loading(true);
     try {
-      User? user = await authRepository.signUpWithEmailAndPassword(emailController.text, passwordController.text);
+      User? user = await authRepository.signUpWithEmailAndPassword(emailController2.text, passwordController2.text);
       if (user != null) {
         Utils().toastMessage('Account created for ${user.email}');
         Get.offAll(() => LoginView());

@@ -34,7 +34,7 @@ class SignUpView extends StatelessWidget {
               Column(
                 children: [
                   TextFormField(
-                    controller: controller.emailController,
+                    controller: controller.emailController2,
                     decoration: const InputDecoration(
                       hintText: 'Email',
                       prefixIcon: Icon(Icons.alternate_email),
@@ -49,7 +49,7 @@ class SignUpView extends StatelessWidget {
                   const SizedBox(height: 10),
                   TextFormField(
                     keyboardType: TextInputType.text,
-                    controller: controller.passwordController,
+                    controller: controller.passwordController2,
                     obscureText: true,
                     decoration: const InputDecoration(
                       hintText: 'Password',

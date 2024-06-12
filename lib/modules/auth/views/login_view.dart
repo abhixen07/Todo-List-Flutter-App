@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_list/modules/auth/controllers/auth_controller.dart';
+import 'package:todo_list/modules/auth/views/google_login.dart';
 import 'package:todo_list/modules/auth/views/signup_view.dart';
 import 'package:todo_list/widgets/round_button.dart';
 
@@ -33,7 +34,7 @@ class LoginView extends GetView<AuthController> {
                 children: [
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
-                    controller: controller.emailController,
+                    controller: controller.emailController1,
                     decoration: const InputDecoration(
                         hintText: 'Email',
                         prefixIcon: Icon(Icons.alternate_email)),
@@ -49,7 +50,7 @@ class LoginView extends GetView<AuthController> {
                   ),
                   TextFormField(
                     keyboardType: TextInputType.text,
-                    controller: controller.passwordController,
+                    controller: controller.passwordController1,
                     obscureText: true,
                     decoration: const InputDecoration(
                         hintText: 'Password', prefixIcon: Icon(Icons.lock)),
@@ -94,7 +95,10 @@ class LoginView extends GetView<AuthController> {
             const SizedBox(height: 30,),
             InkWell(
               onTap: (){
-                // Your Google sign-in logic
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SignInWithGoogle())
+                );
               },
               child: Container(
                 height: 50,
