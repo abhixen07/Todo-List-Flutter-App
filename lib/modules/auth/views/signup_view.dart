@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todo_list/modules/auth/controllers/auth_controller.dart';
+import 'package:todo_list/modules/auth/controllers/signup_controller.dart';
 import 'package:todo_list/modules/auth/views/login_view.dart';
 import 'package:todo_list/widgets/round_button.dart';
 
 class SignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AuthController controller = Get.find<AuthController>();
+    final SignUpController controller = Get.find<SignUpController>();
 
     final GlobalKey<FormState> formKey = GlobalKey<FormState>(); // Add GlobalKey here
 
@@ -34,7 +34,7 @@ class SignUpView extends StatelessWidget {
               Column(
                 children: [
                   TextFormField(
-                    controller: controller.emailController2,
+                    controller: controller.emailControllersignup,
                     decoration: const InputDecoration(
                       hintText: 'Email',
                       prefixIcon: Icon(Icons.alternate_email),
@@ -49,7 +49,7 @@ class SignUpView extends StatelessWidget {
                   const SizedBox(height: 10),
                   TextFormField(
                     keyboardType: TextInputType.text,
-                    controller: controller.passwordController2,
+                    controller: controller.passwordControllersignup,
                     obscureText: true,
                     decoration: const InputDecoration(
                       hintText: 'Password',

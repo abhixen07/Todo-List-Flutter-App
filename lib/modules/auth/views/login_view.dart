@@ -1,12 +1,12 @@
 // LoginView.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todo_list/modules/auth/controllers/auth_controller.dart';
+import 'package:todo_list/modules/auth/controllers/login_controller.dart';
 import 'package:todo_list/modules/auth/views/google_login.dart';
 import 'package:todo_list/modules/auth/views/signup_view.dart';
 import 'package:todo_list/widgets/round_button.dart';
 
-class LoginView extends GetView<AuthController> {
+class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +34,7 @@ class LoginView extends GetView<AuthController> {
                 children: [
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
-                    controller: controller.emailController1,
+                    controller: controller.emailControllerlogin,
                     decoration: const InputDecoration(
                         hintText: 'Email',
                         prefixIcon: Icon(Icons.alternate_email)),
@@ -50,7 +50,7 @@ class LoginView extends GetView<AuthController> {
                   ),
                   TextFormField(
                     keyboardType: TextInputType.text,
-                    controller: controller.passwordController1,
+                    controller: controller.passwordControllerlogin,
                     obscureText: true,
                     decoration: const InputDecoration(
                         hintText: 'Password', prefixIcon: Icon(Icons.lock)),

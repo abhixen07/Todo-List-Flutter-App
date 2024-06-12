@@ -1,10 +1,9 @@
-// main.dart
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todo_list/data/repositories/auth_repository.dart'; // Import the AuthRepository
-import 'package:todo_list/modules/auth/bindings/auth_binding.dart';
-import 'package:todo_list/modules/auth/controllers/auth_controller.dart';
+import 'package:todo_list/data/repositories/auth_repository.dart';
+import 'package:todo_list/modules/auth/controllers/login_controller.dart';
+import 'package:todo_list/modules/auth/controllers/signup_controller.dart';
 import 'package:todo_list/splash_screen.dart';
 import 'firebase_options.dart';
 
@@ -14,11 +13,12 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // // Initialize AuthRepository
-  // AuthRepository authRepository = AuthRepository();
-  //
-  // // Initialize AuthController with AuthRepository
-  // Get.put(AuthController(authRepository: authRepository));
+  // Initialize AuthRepository
+  final authRepository = AuthRepository();
+
+  // Initialize controllers
+  Get.put(LoginController(authRepository: authRepository));
+  Get.put(SignUpController(authRepository: authRepository));
 
   runApp(const MyApp());
 }
@@ -40,7 +40,6 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/splash',
           page: () => SplashScreen(),
-          binding: AuthBinding(), // Bind AuthController in SplashScreen
         ),
       ],
     );
