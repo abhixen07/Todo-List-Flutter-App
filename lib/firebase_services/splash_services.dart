@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:todo_list/modules/auth/views/login_view.dart';
 import 'package:todo_list/modules/auth/views/signup_view.dart';
+import 'package:todo_list/pages/home_page.dart';
 
 class SplashServices {
   Future<void> isLogin() async {
@@ -10,9 +11,9 @@ class SplashServices {
 
     await Future.delayed(const Duration(seconds: 3), () {
       if (user == null) {
-        Get.offAll(() => LoginView());
+        Get.offAll(() => HomePage());
       } else {
-        Get.offAll(() => SignUpView());
+        Get.offAll(() => LoginView());
       }
     });
   }

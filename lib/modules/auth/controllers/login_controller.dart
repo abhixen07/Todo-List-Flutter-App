@@ -27,11 +27,11 @@ class LoginController extends GetxController {
     try {
       User? user = await authRepository.signInWithEmailAndPassword(emailControllerlogin.text, passwordControllerlogin.text);
       if (user != null) {
-        Utils().toastMessage('Welcome ${user.email}');
+        Utils.snackBar('Welcome', user.email.toString());
         Get.offAll(() => HomePage());
       }
     } catch (e) {
-      Utils().toastMessage(e.toString());
+      Utils.snackBar('Error', e.toString());
     } finally {
       loading(false);
     }

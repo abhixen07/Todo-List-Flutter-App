@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:todo_list/pages/home_page.dart';
+import 'package:todo_list/utils/utils.dart';
 
 class google extends GetxController{
   RxBool isSigning = false.obs;
@@ -27,13 +28,14 @@ class google extends GetxController{
             accessToken: googleSignInAuthentication.accessToken);
 
         await auth.signInWithCredential(credential);
+        
 
         isSigning.value = false;
         // If sign-in succeeds, navigate to the next page
         Get.to(HomePage());
       }
     } catch (e) {
-      Fluttertoast.showToast(msg: "Error $e");
+      Utils.snackBar('Error ',e.toString());
     }
   }
 }

@@ -1,9 +1,9 @@
-// LoginView.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_list/modules/auth/controllers/login_controller.dart';
 import 'package:todo_list/modules/auth/views/google_login.dart';
 import 'package:todo_list/modules/auth/views/signup_view.dart';
+import 'package:todo_list/widgets/custom_input_textfield.dart';
 import 'package:todo_list/widgets/round_button.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -27,17 +27,16 @@ class LoginView extends GetView<LoginController> {
               height: 100,
               width: 100,
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 20),
             Form(
               key: controller.formKey,
               child: Column(
                 children: [
-                  TextFormField(
-                    keyboardType: TextInputType.emailAddress,
+                  CustomTextFormField(
                     controller: controller.emailControllerlogin,
-                    decoration: const InputDecoration(
-                        hintText: 'Email',
-                        prefixIcon: Icon(Icons.alternate_email)),
+                    hintText: 'Email',
+                    prefixIcon: Icons.alternate_email,
+                    keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Enter email';
@@ -45,15 +44,12 @@ class LoginView extends GetView<LoginController> {
                       return null;
                     },
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  TextFormField(
-                    keyboardType: TextInputType.text,
+                  const SizedBox(height: 10),
+                  CustomTextFormField(
                     controller: controller.passwordControllerlogin,
+                    hintText: 'Password',
+                    prefixIcon: Icons.lock,
                     obscureText: true,
-                    decoration: const InputDecoration(
-                        hintText: 'Password', prefixIcon: Icon(Icons.lock)),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Enter password';
@@ -64,9 +60,7 @@ class LoginView extends GetView<LoginController> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 50,
-            ),
+            const SizedBox(height: 50),
             RoundButton(
               title: 'Login',
               loading: controller.loading.value,
@@ -77,9 +71,7 @@ class LoginView extends GetView<LoginController> {
               },
               buttonColor: const Color(0xFFFFCC00),
             ),
-            const SizedBox(
-              height: 50,
-            ),
+            const SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -88,17 +80,15 @@ class LoginView extends GetView<LoginController> {
                     onPressed: () {
                       Get.to(SignUpView());
                     },
-                    child: const Text('Sign Up')
-                )
+                    child: const Text('Sign Up')),
               ],
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(height: 30),
             InkWell(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SignInWithGoogle())
-                );
+                    MaterialPageRoute(builder: (context) => const SignInWithGoogle()));
               },
               child: Container(
                 height: 50,
@@ -106,13 +96,12 @@ class LoginView extends GetView<LoginController> {
                     borderRadius: BorderRadius.circular(50),
                     border: Border.all(
                       color: Colors.black,
-                    )
-                ),
+                    )),
                 child: const Center(
                   child: Text('Sign In With Google'),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

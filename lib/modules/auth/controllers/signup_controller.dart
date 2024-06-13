@@ -27,11 +27,11 @@ class SignUpController extends GetxController {
     try {
       User? user = await authRepository.signUpWithEmailAndPassword(emailControllersignup.text, passwordControllersignup.text);
       if (user != null) {
-        Utils().toastMessage('Account created for ${user.email}');
+        Utils.snackBar('Account created for' , user.email.toString());
         Get.offAll(() => LoginView());
       }
     } catch (e) {
-      Utils().toastMessage(e.toString());
+      Utils.snackBar('Error' , e.toString());
     } finally {
       loading(false);
     }
