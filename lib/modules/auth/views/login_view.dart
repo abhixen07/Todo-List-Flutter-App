@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_list/modules/auth/controllers/login_controller.dart';
-import 'package:todo_list/modules/auth/views/google_login.dart';
+import 'package:todo_list/modules/auth/controllers/google_login_controller.dart';
 import 'package:todo_list/modules/auth/views/signup_view.dart';
 import 'package:todo_list/widgets/custom_input_textfield.dart';
 import 'package:todo_list/widgets/round_button.dart';
@@ -9,6 +9,8 @@ import 'package:todo_list/widgets/round_button.dart';
 class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
+    final GoogleLoginController googleController = Get.put(GoogleLoginController());
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -84,24 +86,30 @@ class LoginView extends GetView<LoginController> {
               ],
             ),
             const SizedBox(height: 30),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const SignInWithGoogle()));
-              },
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(
-                      color: Colors.black,
-                    )),
-                child: const Center(
-                  child: Text('Sign In With Google'),
+            Obx(() => ElevatedButton(
+              onPressed: googleController.isSigning.value ? null : googleController.signInWithGoogle,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
-            ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    'assets/googlelogo.png',
+                    height: 24,
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    'Sign In With Google',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ],
+              ),
+            )),
           ],
         ),
       ),
