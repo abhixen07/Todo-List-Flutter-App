@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:todo_list/data/repositories/auth_repository.dart';
-import 'package:todo_list/pages/home_page.dart';
+import 'package:todo_list/todo_management/firestore_list_screen.dart';
 import 'package:todo_list/utils/utils.dart';
 
 class LoginController extends GetxController {
@@ -28,7 +28,7 @@ class LoginController extends GetxController {
       User? user = await authRepository.signInWithEmailAndPassword(emailControllerlogin.text, passwordControllerlogin.text);
       if (user != null) {
         Utils.snackBar('Welcome', user.email.toString());
-        Get.offAll(() => HomePage());
+        Get.offAll(() => FireStoreScreen());
       }
     } catch (e) {
       Utils.snackBar('Error', e.toString());

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:todo_list/pages/home_page.dart';
+import 'package:todo_list/todo_management/firestore_list_screen.dart';
 import 'package:todo_list/utils/utils.dart';
 
 class GoogleLoginController extends GetxController {
@@ -27,7 +27,7 @@ class GoogleLoginController extends GetxController {
         await auth.signInWithCredential(credential);
 
        // Utils.toastMessage('Sign in successful');
-        Get.offAll(() => HomePage());
+        Get.offAll(() => FireStoreScreen());
       } else {
        // Utils.toastMessage('Google sign in aborted');
       }
