@@ -38,7 +38,7 @@ class SplashScreen extends StatelessWidget {
                 Center(
                   child: Text(
                     'Todo List',
-                    style: GoogleFonts.aclonica(
+                    style: GoogleFonts.inknutAntiqua(
                       fontSize: 40,
                       color: Colors.white,
                     ),
