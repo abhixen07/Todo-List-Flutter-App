@@ -7,6 +7,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final TextInputType keyboardType;
   final String? Function(String?) validator;
+  final VoidCallback? onTap; // Added onTap property
 
   const CustomTextFormField({
     Key? key,
@@ -16,6 +17,7 @@ class CustomTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
     required this.validator,
+    this.onTap, // Added onTap property
   }) : super(key: key);
 
   @override
@@ -50,6 +52,7 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       validator: validator,
+      onTap: onTap, // Pass the onTap property to the TextFormField
     );
   }
 }
