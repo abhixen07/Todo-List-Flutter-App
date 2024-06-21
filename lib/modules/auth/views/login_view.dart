@@ -15,8 +15,8 @@ class LoginView extends GetView<LoginController> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Center(child: Text('Login')),
-        backgroundColor: const Color(0xffffcc00),
+        title: const Center(child: Text('Login',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+        backgroundColor: const Color(0xFF075E59),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -71,7 +71,7 @@ class LoginView extends GetView<LoginController> {
                   controller.login();
                 }
               },
-              buttonColor: const Color(0xFFFFCC00),
+              buttonColor: const Color(0xFF075E59),
             ),
             const SizedBox(height: 50),
             Row(
@@ -82,7 +82,7 @@ class LoginView extends GetView<LoginController> {
                     onPressed: () {
                       Get.to(SignUpView());
                     },
-                    child: const Text('Sign Up')),
+                    child: const Text('Sign Up',style: TextStyle(color: Colors.teal))),
               ],
             ),
             const SizedBox(height: 30),

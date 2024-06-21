@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_list/firebase_services/splash_services.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Timer(Duration(seconds: 2), () {
@@ -16,33 +18,43 @@ class SplashScreen extends StatelessWidget {
           gradient: RadialGradient(
             center: Alignment.center,
             radius: 0.8,
-            colors: [Color(0xFFFFFACD), Color(0xffffcc00)],
+            colors: [Color(0xFF05B49C), Color(0xFF075E59)],
           ),
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                width: 300,
-                height: 300,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.transparent,
+        child: SafeArea(
+          bottom: false,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 18, vertical: 124),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset(
+                  'assets/applogo.png',
+                  width: double.infinity,
+                  height: 342,
+                  fit: BoxFit.fill,
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Image.asset(
-                    'assets/applogo.png',
-                    fit: BoxFit.contain,
+                SizedBox(height: 20),
+                Center(
+                  child: Text(
+                    'Todo List',
+                    style: GoogleFonts.aclonica(
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-              ),
-              SizedBox(height: 20),
-              CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFFFCC00)),
-              ),
-            ],
+                Expanded(
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -15,22 +15,26 @@ class FireStoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffffcc00),
-        title: Obx(() => Text(viewModel.isSelecting.value ? 'Select TODO' : 'TODO Management')),
+        centerTitle: true,
+        backgroundColor: Color(0xFF075E59),
+        title: Obx(() => Text(
+          viewModel.isSelecting.value ? 'Select TODO' : 'TODO List',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        )),
         actions: [
           Obx(() => !viewModel.isSelecting.value
               ? IconButton(
             onPressed: () {
               viewModel.isSelecting.value = true;
             },
-            icon: Icon(Icons.select_all),
+            icon: Icon(Icons.select_all, color: Colors.white),
           )
               : IconButton(
             onPressed: () {
               viewModel.isSelecting.value = false;
               viewModel.selectedIds.clear();
             },
-            icon: Icon(Icons.close),
+            icon: Icon(Icons.close, color: Colors.white),
           )),
           IconButton(
             onPressed: () {
@@ -43,11 +47,12 @@ class FireStoreScreen extends StatelessWidget {
                 Utils().toastMessage(error.toString());
               });
             },
-            icon: Icon(Icons.logout_outlined),
+            icon: Icon(Icons.logout_outlined, color: Colors.white),
           ),
           SizedBox(width: 10),
         ],
       ),
+
       body: Column(
         children: [
           const SizedBox(height: 10),
@@ -142,8 +147,8 @@ class FireStoreScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => AddTaskScreen()));
                 },
-                backgroundColor: Color(0xFFFFCC00),
-                child: Icon(Icons.add),
+                backgroundColor: Color(0xFF075E59),
+                child: Icon(Icons.add, color: Colors.white),
                 elevation: 0,
                 mini: true,
               ),

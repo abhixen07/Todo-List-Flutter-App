@@ -15,8 +15,8 @@ class SignUpView extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xFFFFCC00),
-        title: const Center(child: Text('Sign Up')),
+        backgroundColor: const Color(0xFF075E59),
+        title: const Center(child: Text('Sign Up',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold))),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -31,6 +31,7 @@ class SignUpView extends StatelessWidget {
                 height: 100,
                 width: 100,
               ),
+              const SizedBox(height: 20),
               Column(
                 children: [
                   CustomTextFormField(
@@ -69,7 +70,7 @@ class SignUpView extends StatelessWidget {
                     controller.signUp();
                   }
                 },
-                buttonColor: const Color(0xFFFFCC00),
+                buttonColor: const Color(0xFF075E59),
               )),
               const SizedBox(height: 50),
               Row(
@@ -80,7 +81,7 @@ class SignUpView extends StatelessWidget {
                     onPressed: () {
                       Get.to(LoginView());
                     },
-                    child: const Text('Login'),
+                    child: const Text('Login',style: TextStyle(color: Colors.teal)),
                   ),
                 ],
               ),

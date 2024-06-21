@@ -44,7 +44,7 @@ class RoundButton extends StatelessWidget {
               : Text(
             title,
             style: TextStyle(
-              color: Colors.black, // Set text color to black
+              color: Colors.white, // Set text color to black
               fontWeight: FontWeight.bold, // Set text to bold
             ),
           ),

@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:todo_list/modules/auth/views/task_management_view.dart';
-import 'package:todo_list/todo_management/firestore_list_screen.dart';
 import 'package:todo_list/utils/utils.dart';
 
 class GoogleLoginController extends GetxController {
