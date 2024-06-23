@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/utils/utils.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
@@ -7,7 +8,9 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final TextInputType keyboardType;
   final String? Function(String?) validator;
-  final VoidCallback? onTap; // Added onTap property
+  final VoidCallback? onTap;
+  final FocusNode focusNode;
+  final FocusNode? nextFocusNode;
 
   const CustomTextFormField({
     Key? key,
@@ -17,13 +20,16 @@ class CustomTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
     required this.validator,
-    this.onTap, // Added onTap property
+    this.onTap,
+    required this.focusNode,
+    this.nextFocusNode,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      focusNode: focusNode,
       decoration: InputDecoration(
         hintText: hintText,
         prefixIcon: Icon(prefixIcon),
@@ -52,7 +58,12 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       validator: validator,
-      onTap: onTap, // Pass the onTap property to the TextFormField
+      onTap: onTap,
+      onFieldSubmitted: (_) {
+        if (nextFocusNode != null) {
+          Utils.fieldFocusChange(context, focusNode, nextFocusNode!);
+        }
+      },
     );
   }
 }

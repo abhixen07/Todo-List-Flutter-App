@@ -22,14 +22,15 @@ class TaskManagementController extends GetxController {
   void loadTasks() {
     fireStore.collection('TODO').snapshots().listen((querySnapshot) {
       tasks.value = querySnapshot.docs
-          .map((doc) => Task.fromMap(doc.data() as Map<String, dynamic>))
+          .map((doc) => Task.fromMap(doc.data() as Map<String, dynamic>)
+        ..id = doc.id)
           .toList();
     });
   }
 
   Future<void> addTask(Task task) async {
     loading.value = true;
-    await fireStore.collection('TODO').doc(task.id).set(task.toMap()).then((value) {
+    await fireStore.collection('TODO').add(task.toMap()).then((value) {
       Utils().toastMessage('Added Successfully');
       loading.value = false;
     }).catchError((error) {

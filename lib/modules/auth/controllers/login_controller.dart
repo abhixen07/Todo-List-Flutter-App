@@ -11,12 +11,16 @@ class LoginController extends GetxController {
 
   LoginController({required this.authRepository});
 
+  final Rx<FocusNode> emailFocusNode = FocusNode().obs;
+  final Rx<FocusNode> passwordFocusNode = FocusNode().obs;
   final TextEditingController emailControllerlogin = TextEditingController();
   final TextEditingController passwordControllerlogin = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
   void onClose() {
+    emailFocusNode.value.dispose();
+    passwordFocusNode.value.dispose();
     emailControllerlogin.dispose();
     passwordControllerlogin.dispose();
     super.onClose();

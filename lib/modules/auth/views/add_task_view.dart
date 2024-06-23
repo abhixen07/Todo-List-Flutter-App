@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_list/modules/auth/controllers/add_task_controller.dart';
@@ -11,6 +10,8 @@ class AddTaskScreen extends StatelessWidget {
 
   final TaskViewModel viewModel = Get.put(TaskViewModel());
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,9 +20,9 @@ class AddTaskScreen extends StatelessWidget {
         title: Text(
           'Add New Task',
           style: GoogleFonts.poppins(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 20
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 20
           ),
         ),
         centerTitle: true,
@@ -51,7 +52,8 @@ class AddTaskScreen extends StatelessWidget {
                       return 'Task name cannot be empty';
                     }
                     return null;
-                  },
+                  }, focusNode: viewModel.taskFocusNode.value,
+                  nextFocusNode: viewModel.descriptionFocusNode.value,
                 ),
                 SizedBox(height: 20),
                 CustomTextFormField(
@@ -64,7 +66,8 @@ class AddTaskScreen extends StatelessWidget {
                       return 'Description cannot be empty';
                     }
                     return null;
-                  },
+                  }, focusNode: viewModel.descriptionFocusNode.value,
+                  nextFocusNode: viewModel.dateTimeFocusNode.value,
                 ),
                 SizedBox(height: 20),
                 CustomTextFormField(
@@ -99,11 +102,11 @@ class AddTaskScreen extends StatelessWidget {
                           pickedTime.hour,
                           pickedTime.minute,
                         );
-                        String formattedDateTime = formatDate(dateTime); // Format date time
+                        String formattedDateTime = viewModel.formatDate(dateTime); // Format date time
                         viewModel.dateTimeController.text = formattedDateTime;
                       }
                     }
-                  },
+                  }, focusNode: viewModel.dateTimeFocusNode.value,
                 ),
                 SizedBox(height: 30),
                 Obx(() => RoundButton(
@@ -119,17 +122,4 @@ class AddTaskScreen extends StatelessWidget {
       ),
     );
   }
-
-  // Function to format DateTime as per requirement
-  String formatDate(DateTime dateTime) {
-    String formattedDate = '${dateTime.year}-${_twoDigits(dateTime.month)}-${_twoDigits(dateTime.day)} '
-        '${_twoDigits(dateTime.hour)}:${_twoDigits(dateTime.minute)}';
-    return formattedDate;
-  }
-
-  String _twoDigits(int n) {
-    if (n >= 10) return '$n';
-    return '0$n';
-  }
 }
-

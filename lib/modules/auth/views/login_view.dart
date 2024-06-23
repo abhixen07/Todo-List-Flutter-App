@@ -56,6 +56,8 @@ class LoginView extends GetView<LoginController> {
                       }
                       return null;
                     },
+                    focusNode: controller.emailFocusNode.value,
+                    nextFocusNode: controller.passwordFocusNode.value,
                   ),
                   const SizedBox(height: 20),
                   CustomTextFormField(
@@ -69,9 +71,10 @@ class LoginView extends GetView<LoginController> {
                       }
                       return null;
                     },
+                    focusNode: controller.passwordFocusNode.value,
                   ),
                   const SizedBox(height: 20),
-                  RoundButton(
+                  Obx(() => RoundButton(
                     title: 'Login',
                     loading: controller.loading.value,
                     onTap: () {
@@ -80,6 +83,7 @@ class LoginView extends GetView<LoginController> {
                       }
                     },
                     buttonColor: const Color(0xFF075E59),
+                  ),
                   ),
                 ],
               ),
@@ -135,7 +139,8 @@ class LoginView extends GetView<LoginController> {
                   ],
                 ),
               ),
-            )),
+            ),
+            ),
           ],
         ),
       ),

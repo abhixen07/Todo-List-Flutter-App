@@ -6,10 +6,9 @@ import 'package:todo_list/modules/auth/views/login_view.dart';
 import 'package:todo_list/widgets/custom_input_textfield.dart';
 import 'package:todo_list/widgets/round_button.dart';
 
-class SignUpView extends StatelessWidget {
+class SignUpView extends GetView<SignUpController> {
   @override
   Widget build(BuildContext context) {
-    final SignUpController controller = Get.find<SignUpController>();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -56,6 +55,8 @@ class SignUpView extends StatelessWidget {
                       }
                       return null;
                     },
+                    focusNode: controller.emailFocusNode.value,
+                    nextFocusNode: controller.passwordFocusNode.value,
                   ),
                   const SizedBox(height: 20),
                   CustomTextFormField(
@@ -69,9 +70,10 @@ class SignUpView extends StatelessWidget {
                       }
                       return null;
                     },
+                    focusNode: controller.passwordFocusNode.value,
                   ),
                   const SizedBox(height: 20),
-                  RoundButton(
+                  Obx(() => RoundButton(
                     title: 'Sign Up',
                     loading: controller.loading.value,
                     onTap: () {
@@ -80,6 +82,7 @@ class SignUpView extends StatelessWidget {
                       }
                     },
                     buttonColor: const Color(0xFF075E59),
+                  ),
                   ),
                 ],
               ),
