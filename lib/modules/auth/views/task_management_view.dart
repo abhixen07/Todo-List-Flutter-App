@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,7 +9,7 @@ import 'package:todo_list/modules/auth/views/login_view.dart';
 import 'package:todo_list/utils/utils.dart';
 
 class FireStoreScreen extends StatelessWidget {
-  FireStoreScreen({Key? key}) : super(key: key);
+  FireStoreScreen({Key? key, required User? user}) : super(key: key);
 
   final TaskManagementController viewModel = Get.put(TaskManagementController());
 

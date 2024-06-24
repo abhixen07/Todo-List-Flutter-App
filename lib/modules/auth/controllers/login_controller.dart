@@ -29,10 +29,12 @@ class LoginController extends GetxController {
   void login() async {
     loading(true);
     try {
-      User? user = await authRepository.signInWithEmailAndPassword(emailControllerlogin.text, passwordControllerlogin.text);
+      User? user = await authRepository.signInWithEmailAndPassword(
+          emailControllerlogin.text, passwordControllerlogin.text);
       if (user != null) {
         Utils.snackBar('Welcome', user.email.toString());
-        Get.offAll(() => FireStoreScreen());
+        Get.offAll(() =>
+            FireStoreScreen(user: user)); // Pass the user to the next screen
       }
     } catch (e) {
       Utils.snackBar('Error', e.toString());

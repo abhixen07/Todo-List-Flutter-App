@@ -9,8 +9,8 @@ class SplashServices {
     final user = auth.currentUser;
 
     await Future.delayed(const Duration(seconds: 3), () {
-      if (user != null) {
-        Get.offAll(() => FireStoreScreen());
+      if (user!= null) {
+        Get.offAll(() => FireStoreScreen(user: user));
       } else {
         Get.offAll(() => LoginView());
       }

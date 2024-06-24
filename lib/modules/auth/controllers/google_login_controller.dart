@@ -10,6 +10,7 @@ class GoogleLoginController extends GetxController {
   Future<void> signInWithGoogle() async {
     final FirebaseAuth auth = FirebaseAuth.instance;
     final GoogleSignIn googleSignIn = GoogleSignIn();
+    final user = auth.currentUser;
 
     try {
       isSigning.value = true;
@@ -26,10 +27,10 @@ class GoogleLoginController extends GetxController {
 
         await auth.signInWithCredential(credential);
 
-       // Utils.toastMessage('Sign in successful');
-        Get.offAll(() => FireStoreScreen());
+        // Utils.toastMessage('Sign in successful');
+        Get.offAll(() => FireStoreScreen(user: user,));
       } else {
-       // Utils.toastMessage('Google sign in aborted');
+        // Utils.toastMessage('Google sign in aborted');
       }
     } catch (e) {
       Utils.snackBar('Error', e.toString());
