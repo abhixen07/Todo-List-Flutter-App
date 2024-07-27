@@ -1,4 +1,4 @@
-# todo_list
+### TODO LIST APP MADE WITH DART/FLUTTER AND FIREBASE
 
 A new Flutter project.
 
