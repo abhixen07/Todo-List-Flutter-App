@@ -23,3 +23,6 @@ I developed a To-Do List app using Flutter and Dart, integrated with Firebase fo
 * **Task Management Features:** Users can easily add new tasks, update existing ones, and delete tasks when completed. Users can schedule tasks for future dates, helping them plan and organize their activities in advance. A convenient option to clear all tasks at once, providing flexibility in task management.
 
 * **State Management and Performance Optimization:** The application leverages the GetX library for efficient state management, optimizing performance and resource utilization. This approach ensures smooth and responsive user interactions.
+
+
+# UI Of The Application
