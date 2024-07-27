@@ -1,16 +1,12 @@
 # TODO LIST APP MADE WITH DART/FLUTTER AND FIREBASE
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Introduction
 
-A few resources to get you started if this is your first Flutter project:
+I have developed a comprehensive To-Do List application using Flutter and Dart, integrated with Firebase for backend services. This app offers a robust set of features designed to help users efficiently manage their tasks and schedules. With a user-friendly interface and secure authentication options, including Google login, the app ensures a seamless experience for users.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Project Overview
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I developed a To-Do List app using Flutter and Dart, integrated with Firebase for backend services. The app includes user authentication options like login, Google login, and sign-up. Users can manage their tasks with features to add, update, delete, and schedule tasks for the future. The combination of Flutter's cross-platform capabilities and Firebase's real-time database ensures a seamless and responsive user experience. This project aims to provide an efficient and user-friendly solution for daily task management.
+
